@@ -7,16 +7,6 @@ import {nanoid} from "nanoid"
 import './App.css';
 
 export default function App() {
-    /**
-     * Challenge:
-     * 1. Every time the `notes` array changes, save it 
-     *    in localStorage. You'll need to use JSON.stringify()
-     *    to turn the array into a string to save in localStorage.
-     * 2. When the app first loads, initialize the notes state
-     *    with the notes saved in localStorage. You'll need to
-     *    use JSON.parse() to turn the stringified array back
-     *    into a real JS array.
-     */
 
     const [notes, setNotes] = useState(() => JSON.parse(localStorage.getItem('notes')) || [])
     const [currentNoteId, setCurrentNoteId] = useState(
@@ -49,7 +39,7 @@ export default function App() {
 
     function deleteNote(event, noteId) {
         event.stopPropagation();
-        setNotes(prev => prev.filter( elem => elem.id != noteId )));
+        setNotes(prev => prev.filter( elem => elem.id != noteId ));
 
     }
     
